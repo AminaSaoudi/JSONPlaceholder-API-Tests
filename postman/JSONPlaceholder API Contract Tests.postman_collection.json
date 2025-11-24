@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "35183f5f-9559-48a2-ad97-705822ec8e01",
 		"name": "JSONPlaceholder API Contract Tests",
+		"description": "StartFragment\n\n# **JSONPlaceholder API Contract Tests**\n\n## **Purpose**\n\nThis collection validates the **contract**, **structure**, and **basic health** of the JSONPlaceholder API.  \n  \nThe goal is to ensure that each endpoint consistently returns responses that match the expected schema, data types, and status codes. These tests help detect breaking changes, regressions, and deviations from the documented API behavior.\n\n## **Target API**\n\nAll tests target the public JSONPlaceholder API:  \n[<b>https://jsonplaceholder.typicode.com</b>](https://jsonplaceholder.typicode.com)\n\nThis API is a free fake REST service used for learning, prototyping, and testing workflows.\n\n## **How to Run This Collection**\n\nBefore running the collection, make sure you have the required environment variable:\n\n### **Environment Variable**\n\n| Variable | Description |\n| --- | --- |\n| `baseUrl` | The base URL of the target API. Set it to `https://jsonplaceholder.typicode.com`. |\n\n### Steps\n\n1. Make sure an environment is selected in Postman.\n    \n2. https://jsonplaceholder.typicode.com\n    \n3. Open the collection and click **Run Collection** (or use Newman/GitHub Actions if configured).\n    \n4. Execute the tests.  \n      \n    All requests will automatically use the `{{baseUrl}}` variable.\n    \n\nEndFragment",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "50210709",
 		"_collection_link": "https://www.postman.com/saoudiam-97-2155897/workspace/jsonplaceholder-api-tests/collection/50210709-35183f5f-9559-48a2-ad97-705822ec8e01?action=share&source=collection_link&creator=50210709"
@@ -22,6 +23,16 @@
 									"});\r",
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"const schema = pm.collectionVariables.get(\"postSchema\");\r",
+									"const jsonSchema = JSON.parse(schema);\r",
+									"const responseBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Contract: each item matches postSchema\", () => {\r",
+									"    responseBody.forEach(item => {\r",
+									"        pm.expect(tv4.validate(item, jsonSchema), tv4.error).to.be.true;\r",
+									"    });\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -41,7 +52,8 @@
 							"path": [
 								"posts"
 							]
-						}
+						},
+						"description": "StartFragment\n\n**Purpose:**  \n  \nRetrieves the full list of posts and validates the API’s ability to return a complete collection.\n\n**What this request tests:**\n\n- HTTP **200** status\n    \n- Response time performance\n    \n- JSON array structure\n    \n- Contract validation for each post object (userId, id, title, body)\n    \n- Ensures the endpoint consistently returns the expected list format\n    \n\nEndFragment"
 					},
 					"response": []
 				},
@@ -57,7 +69,16 @@
 									"});\r",
 									"pm.test(\"Response time is less than 200ms\", function () {\r",
 									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-									"});"
+									"});\r",
+									"\r",
+									"const schema = pm.collectionVariables.get(\"postSchema\");\r",
+									"const jsonSchema = JSON.parse(schema);\r",
+									"const responseBody = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Contract: response matches postSchema\", () => {\r",
+									"    pm.expect(tv4.validate(responseBody, jsonSchema), tv4.error).to.be.true;\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {},
@@ -77,11 +98,42 @@
 								"posts",
 								"1"
 							]
-						}
+						},
+						"description": "StartFragment\n\n**Purpose:**  \n  \nRetrieves one post by its ID and validates the integrity of a single resource.\n\n**What this request tests:**\n\n- HTTP **200** status\n    \n- Response time performance\n    \n- Full JSON contract validation for a single post resource\n    \n- Verifies presence and types of required fields (userId, id, title, body)\n    \n- Confirms the endpoint correctly handles path parameters\n    \n\nEndFragment"
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "postSchema",
+			"value": ""
 		}
 	]
 }
