@@ -12,8 +12,6 @@ This project validates:
 - HTTP status codes  
 - Response times  
 - JSON schema/contract for posts  
-- Handling of path parameters  
-- Stability of the `/posts` resources  
 
 Tests run automatically using:
 
@@ -46,8 +44,7 @@ npm install -g newman
 ### 2. Run the Collection
 
 ```bash
-newman run "postman/JSONPlaceholder API Contract Tests.postman_collection.json" \
-  -e "postman/Development Environment.json"
+newman run "postman/JSONPlaceholder API Contract Tests.postman_collection.json" -e "postman/Development Environment.json"
 ```
 
 ---
