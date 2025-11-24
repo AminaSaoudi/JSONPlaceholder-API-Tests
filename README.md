@@ -53,7 +53,7 @@ newman run "postman/JSONPlaceholder API Contract Tests.postman_collection.json" 
 ### 3. Run with Allure Report (Optional)
 
 ```bash
-npm install -g @apidevtools/swagger-parser allure-commandline
+npm install newman-reporter-allure allure-commandline
 
 newman run "postman/JSONPlaceholder API Contract Tests.postman_collection.json" \
   -e "postman/Development Environment.json" \
