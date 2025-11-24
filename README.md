@@ -1,4 +1,5 @@
 # JSONPlaceholder API Contract Tests
+[![API Contract Tests](https://github.com/AminaSaoudi/JSONPlaceholder-API-Tests/actions/workflows/postman-tests.yml/badge.svg)](https://github.com/AminaSaoudi/JSONPlaceholder-API-Tests/actions/workflows/postman-tests.yml)
 
 This repository contains automated **API contract and health tests** for the public JSONPlaceholder API using Postman.  
 The goal is to ensure response structure, data types, and status codes remain consistent with the documented API behavior.
