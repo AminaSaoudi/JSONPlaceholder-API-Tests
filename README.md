@@ -49,7 +49,7 @@ newman run "postman/JSONPlaceholder_API_Contract_Tests.postman_collection.json" 
 
 ---
 
-## 🌐 API Under Test
+##  API Under Test
 
 All tests run against:
 
@@ -58,3 +58,11 @@ https://jsonplaceholder.typicode.com
 ```
 
 The base URL is configured via the `baseUrl` environment variable in the environment file.
+
+## Continuous Integration (GitHub Actions)
+
+This project includes a CI pipeline that automatically runs all API tests on:
+
+Every push
+
+Every pull request
