@@ -25,8 +25,8 @@ Tests run automatically using:
 
 ```
 /postman/
-  ├── JSONPlaceholder API Contract Tests.postman_collection.json
-  └── Development Environment.json
+  ├── JSONPlaceholder_API_Contract_Tests.postman_collection.json
+  └── Development_Environment.json
 .github/workflows/
   └── api-tests.yml
 ```
@@ -44,7 +44,7 @@ npm install -g newman
 ### 2. Run the Collection
 
 ```bash
-newman run "postman/JSONPlaceholder API Contract Tests.postman_collection.json" -e "postman/Development Environment.json"
+newman run "postman/JSONPlaceholder_API_Contract_Tests.postman_collection.json" -e "postman/Development_Environment.json"
 ```
 
 ---
