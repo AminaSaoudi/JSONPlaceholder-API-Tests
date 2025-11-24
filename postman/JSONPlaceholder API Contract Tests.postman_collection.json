@@ -133,7 +133,7 @@
 	"variable": [
 		{
 			"key": "postSchema",
-			"value": ""
+			"value": "{\n  \"type\": \"object\",\n  \"required\": [\"userId\", \"id\", \"title\", \"body\"],\n  \"properties\": {\n    \"userId\": { \"type\": \"number\" },\n    \"id\": { \"type\": \"number\" },\n    \"title\": { \"type\": \"string\" },\n    \"body\": { \"type\": \"string\" }\n  },\n  \"additionalProperties\": false\n}"
 		}
 	]
 }
