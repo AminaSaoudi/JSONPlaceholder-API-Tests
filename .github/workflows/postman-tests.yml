@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Postman tests
         run: |
-          newman run postman/JSONPlaceholder_Collection.json -e postman/Development_Environment.json -r cli,htmlextra --reporter-htmlextra-export newman-report.html
+          newman run postman/JSONPlaceholder_API_Contract_Tests.postman_collection.json -e postman/Development_Environment.json -r cli,htmlextra --reporter-htmlextra-export newman-report.html
 
       - name: Upload Newman HTML Report
         uses: actions/upload-artifact@v4
