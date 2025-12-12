@@ -6,7 +6,7 @@ The goal is to ensure response structure, data types, and status codes remain co
 
 ---
 
-## 🚀 Overview
+##  Overview
 
 This project validates:
 
@@ -22,7 +22,7 @@ Tests run automatically using:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 /postman/
@@ -34,7 +34,7 @@ Tests run automatically using:
 
 ---
 
-## 🧪 How to Run Locally
+##  How to Run Locally
 
 ### 1. Install Newman
 
